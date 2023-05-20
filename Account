@@ -126,6 +126,16 @@ public class Account
      }
    }
 
+//tester class
+class ClientFile {
+  public static void main(String[] args) {
+    
+    Account example = new Account("example@k12.ipsd.org", "hackathon", 1234567890, "Harry Potter", "Chocolate", "Ms.Teacher");
+ 
+    
+    
+  }
+}
 
 
 
