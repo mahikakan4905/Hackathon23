@@ -1,0 +1,133 @@
+
+public class Account 
+{
+	private String emailAddress; 
+  	private String password;
+  	private int phoneNumber;
+  	private int authentication;
+  	private String securityAnswer1;
+    private String securityAnswer2;
+ 	private String securityAnswer3;
+  	
+
+
+  	public Account(String email, String pass, int phone, String answer1, String answer2, String answer3){
+      securityAnswer1 = answer1;
+      securityAnswer2 = answer2;
+      securityAnswer3 = answer3;
+	
+		emailAddress = email;
+      	password = pass;
+      	phoneNumber = phone;
+	}
+
+  
+ 
+  
+	
+	public String getEmailAddress()
+	{
+		return emailAddress;
+	}
+	
+	public String getPassword()
+	{
+		return password;
+	}
+	//Can only be done while logged in
+  //favorite book
+   public void changeSecurityQuestion1(String oldAnswer, String newAnswer1){
+     if (oldAnswer.equals(securityAnswer1))
+    securityAnswer1 = newAnswer1;
+  }
+  //favorite icecream flavor
+ 	 public void changeSecurityQuestion2(String oldAnswer, String newAnswer2){
+      if (oldAnswer.equals(securityAnswer2))
+    securityAnswer2 = newAnswer2;
+  }
+  //name of favorite teacher
+	public void changeSecurityQuestion3(String oldAnswer, String newAnswer3){
+	 if (oldAnswer.equals(securityAnswer3))
+    securityAnswer3 = newAnswer3;
+  }
+  public String getAnswer1()
+	{
+		return securityAnswer1;
+	}
+  public String getAnswer2()
+	{
+		return securityAnswer2;
+	}
+  public String getAnswer3()
+	{
+		return securityAnswer3;
+	}
+	//can only be done when logged in. when button is clicked to change field, getAuthenticationNumber() is immediately called
+	public void changePassword(String newPass, int code)
+	{
+      if(code == authentication){
+        password = newPass;
+      }
+	}
+  
+  public void changePhoneNumber(int newNum, int code)
+	{
+      if(code == authentication){
+        phoneNumber = newNum;
+      }
+	}
+  	
+  	public void getAuthenticationNumber(){
+      authentication = (int)Math.random()*1000;
+      //send to phoneNumber
+    }
+  
+	public boolean logIn(String email, String pass, int code){
+      if(email.equals(emailAddress)){
+        if (pass.equals(password)){
+          if(code == authentication){
+            return true;
+          }
+        }
+      }
+      
+        return false;
+    }
+	
+  
+  	public void forgotUsername(int code, String answer1, String answer2, String answer3){
+      if(code == authentication){
+        if(answer1.equals(getAnswer1())){
+		if(answer2.equals(getAnswer2())){
+		if(answer3.equals(getAnswer3())){
+
+
+		//send username to phonenumber
+        }
+        }
+        }
+      
+      }
+    }
+  public void forgotPassword(int code, String answer1, String answer2, String answer3){
+      if(code == authentication){
+        if(answer1.equals(getAnswer1())){
+		if(answer2.equals(getAnswer2())){
+        if(answer3.equals(getAnswer3())){
+
+
+          		//send password to email
+
+
+       		 }
+           }
+         }
+       }
+     }
+   }
+
+
+
+
+
+
