@@ -11,15 +11,19 @@ public class Account
   	
 
 
-  	public Account(String email, String pass, int phone, String answer1, String answer2, String answer3){
+  	public Account(String email, String pass, String doubleCheck, int phone, String answer1, String answer2, String answer3){
       securityAnswer1 = answer1;
       securityAnswer2 = answer2;
       securityAnswer3 = answer3;
 	
 		emailAddress = email;
-      	password = pass;
+            if(pass.equals(doubleCheck)){
+
+      	password = pass;            
+            }
       	phoneNumber = phone;
 	}
+      
 
   
  
@@ -63,10 +67,12 @@ public class Account
 		return securityAnswer3;
 	}
 	//can only be done when logged in. when button is clicked to change field, getAuthenticationNumber() is immediately called
-	public void changePassword(String newPass, int code)
+	public void changePassword(String newPass, String doubleCheck, int code)
 	{
+      if(newPass.equals(doubleCheck)){
       if(code == authentication){
         password = newPass;
+      }
       }
 	}
   
@@ -125,6 +131,12 @@ public class Account
        }
      }
    }
+
+
+
+
+
+
 
 //tester class
 class ClientFile {
